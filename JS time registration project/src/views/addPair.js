@@ -26,7 +26,7 @@ export async function addProjView(ctx) {
         
         updateRow(ctx);
         const form = document.querySelector('#myForm');
-        form.reset();
+        form.reset();        
         
         ctx.page.redirect("/Timesheets"); // redirect to the dashboard page.
         
