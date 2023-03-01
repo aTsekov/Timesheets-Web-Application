@@ -2,20 +2,28 @@
 import { html ,render} from '../../node_modules/lit-html/lit-html.js'
 import{logout} from '.././API/data.js';
 import page from '../../node_modules/page/page.mjs';
+import {getItemById } from '.././API/data.js';
 
 
-const table = document.getElementById('test')
-const currentDate = new Date();
-  const currentDay = currentDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
+
+
+const table = document.getElementById('output')
+
   
   
 export async function updateRow(ctx){
-    
-    render(createRowTemp(currentDay),table)
+
+  const data = {project, phase, subphase, monday,tuesday ,wednesday ,thursday ,friday ,saturday ,sunday};   
+  // const id = ctx.params.id
+  //   const oneRow = await getItemById(id);
+
+    render(createRowTemp(data),table)
 
 }
 
-function createRowTemp() {
+
+
+function createRowTemp(data) {
     
 
     const today = new Date().toLocaleDateString();
@@ -43,7 +51,6 @@ function createRowTemp() {
     const inFiveDays = new Date();
     inFiveDays.setDate(inFiveDays.getDate() + 5);
     const ininFiveDaysString = inFiveDays.toLocaleDateString();
-
     const res =html`
     <table>
     <thead>
@@ -61,20 +68,19 @@ function createRowTemp() {
       </tr>
     </thead>
     <tbody>
-      <!-- Add rows for each project phase and sub-phase -->
+      Add rows for each project phase and sub-phase -->
       <tr>
-        <td rowspan="2">Project A</td>
-        <td rowspan="1">Phase 1</td>
-        <td>Sub-Phase A</td>
-        <td>5</td>
-        <td>6</td>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-        <td>10</td>
-        <td>11</td>
-      </tr>
-      
+        <td rowspan="2">${project.value}</td>
+        <td rowspan="1">${phase.value}</td>
+        <td>${subphase.value}</td>
+        <td>${monday.value}</td>
+        <td>${tuesday.value}</td>
+        <td>${wednesday.value}</td>
+        <td>${thursday.value}</td>
+        <td>${friday.value}</td>
+        <td>${saturday.value}</td>
+        <td>${sunday.value}</td>
+      </tr>     
     </tbody>
   </table>`
           

@@ -6,7 +6,7 @@ import { addProjView } from './views/addPair.js';
 import { updateNav } from './views/navView.js';
 
 
-const root = document.getElementsByTagName('main')[0]; // DO NOT FORGET TO ADJUST THE ROOT!!!
+const root = document.getElementById('input'); // DO NOT FORGET TO ADJUST THE ROOT!!!
 //Test for github
 
 //page(renderMiddleware); to test

@@ -60,3 +60,4 @@ export async function put(url, data) {//PUT needs url, headers and body.
 export async function del(url) {//DELETE needs url only.  
     return await request(url, getOptions("DELETE"))
 }
+
