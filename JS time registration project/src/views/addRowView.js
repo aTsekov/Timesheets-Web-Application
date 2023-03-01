@@ -7,23 +7,21 @@ import { getItemById } from '.././API/data.js';
  
  
 const table = document.getElementById('output')
-let elementsArray = [];
+let rowsData = [];
  
  
 export async function updateRow(ctx) {
  
   const data = { project, phase, subphase, monday, tuesday, wednesday, thursday, friday, saturday, sunday };
-  elementsArray.push(data);
-  // const id = ctx.params.id
-  //   const oneRow = await getItemById(id);
- 
-  render(createRowTemp(elementsArray), table)
+  const newRow = createRowTemp([data]);
+  rowsData.push(newRow);
+  render(rowsData, table);
  
 }
  
  
  
-function createRowTemp(data) {
+function createRowTemp(rowsData) {
  
   
  
@@ -69,20 +67,21 @@ function createRowTemp(data) {
       </tr>
     </thead>
     <tbody>
-    ${data.map((item) => html`
+    ${rowsData.map((rowData) => html`
     <tr>
-    <td>${item.project.value}</td>
-    <td>${item.phase.value}</td>
-    <td>${item.subphase.value}</td>
-    <td>${item.monday.value}</td>
-    <td>${item.tuesday.value}</td>
-    <td>${item.wednesday.value}</td>
-    <td>${item.thursday.value}</td>
-    <td>${item.friday.value}</td>
-    <td>${item.saturday.value}</td>
-    <td>${item.sunday.value}</td>
-  </tr>`
-  )}       
+      <td>${rowData.project.value}</td>
+      <td>${rowData.phase.value}</td>
+      <td>${rowData.subphase.value}</td>
+      <td>${rowData.monday.value}</td>
+      <td>${rowData.tuesday.value}</td>
+      <td>${rowData.wednesday.value}</td>
+      <td>${rowData.thursday.value}</td>
+      <td>${rowData.friday.value}</td>
+      <td>${rowData.saturday.value}</td>
+      <td>${rowData.sunday.value}</td>
+    </tr>
+  `)} 
+       
     </tbody>
   </table>`
  
