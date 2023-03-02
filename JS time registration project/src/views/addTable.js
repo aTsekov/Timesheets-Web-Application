@@ -8,6 +8,7 @@ import { updateRow } from './addRowView.js';
 
 export async function addProjView(ctx) {
   const inputDiv = document.getElementById('input')
+  const sendButton = document.getElementById('SendToDb');
 
     ctx.render(addProjTemplate(onSubmit),inputDiv)
     
@@ -21,7 +22,7 @@ export async function addProjView(ctx) {
         // if(!project || !phase|| !subphase || !monday || !tuesday || !wednesday  || !thursday || !friday || !saturday || !sunday){
         //     return alert ("All fields are required!")
         // }
-        await createItem({project, phase, subphase, monday,tuesday ,wednesday ,thursday ,friday ,saturday ,sunday});
+        //await createItem({project, phase, subphase, monday,tuesday ,wednesday ,thursday ,friday ,saturday ,sunday}); this sends it to the DB
         //updateNav();
         
         updateRow(ctx);
@@ -36,10 +37,9 @@ export async function addProjView(ctx) {
 }
 
 function addProjTemplate(handler) {
-    const res = 
-    
-
- html`<div id="timesheetId" class="timesheet">
+    const res =  html`
+ <p></p> 
+ <div id="timesheetId" class="timesheet">
      <div class="timesheet-form">
    <h2>Timesheet</h2>
    <form id='myForm' @submit = ${handler}>
@@ -107,6 +107,8 @@ function addProjTemplate(handler) {
    </form>
    </div>
    </div>
+
+   
      
     
     `
